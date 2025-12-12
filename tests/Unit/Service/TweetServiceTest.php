@@ -29,7 +29,7 @@ class TweetServiceTest extends TestCase
 
         $mock->shouldReceive('where->first')
             ->once()
-            ->andReturn((object)['id' => 2, 'user_id' => 2]);
+            ->andReturn((object)['id' => 1, 'user_id' => 2]);
 
         $result = $tweetService->checkOwnTweet(1, 1);
 
