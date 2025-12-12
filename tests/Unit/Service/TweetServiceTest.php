@@ -3,7 +3,8 @@
 namespace Tests\Unit\Service;
 
 use App\Services\TweetService;
-use PHPUnit\Framework\TestCase;
+// use PHPUnit\Framework\TestCase;
+use Tests\TestCase; 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TweetServiceTest extends TestCase
