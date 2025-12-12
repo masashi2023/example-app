@@ -3,9 +3,11 @@
 namespace Tests\Unit\Service;
 
 use App\Services\TweetService;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 // use PHPUnit\Framework\TestCase;
 use Tests\TestCase; 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Mockery
 
 class TweetServiceTest extends TestCase
 {
@@ -18,6 +20,14 @@ class TweetServiceTest extends TestCase
     {
         // TweetServiceのインスタンスを生成
         $tweetService = new TweetService();
+        
+        queryBuilderMock1 = Mockery::mock()
+        ->shouldNotReceive('firsr')
+        ->andReturn((object)['id'=>1,'user_id' => 1]);
+
+        queryBuilderMock2 = Mockery::mock()
+        ->shouldNotReceive('firsr')
+        ->andReturn((object)['id'=>2,'user_id' => 2]);
 
         $result = $tweetService->checkOwnTweet(1, 1);
 
@@ -26,7 +36,7 @@ class TweetServiceTest extends TestCase
 
         $result = $tweetService->checkOwnTweet(2, 1);
 
-        // assertTrueは（）の中がtrueになるか
+        // assertFalseは（）の中がtrueになるか
         $this->assertFalse($result);
     }
 }
