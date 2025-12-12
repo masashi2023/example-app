@@ -23,20 +23,24 @@ jobs:
         run: php artisan key:generate
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
-      
+
       # データベース関連の設定をシンプルなSQLiteメモリDBに統一
       - name: Create Database Placeholder
         run: |
           mkdir -p database
           touch database/database.sqlite
-          
+      # ★★★ ここから Node/Vite ビルドステップを追加 ★★★
+      - name: Install Node Dependencies
+        run: npm install
+      - name: Build Assets (Vite)
+        run: npm run build
       - name: Run Migrations
         env:
-          DB_CONNECTION: sqlite      # envよりも2スペース右
-          DB_DATABASE: ":memory:"      # envよりも2スペース右
+          DB_CONNECTION: sqlite # envよりも2スペース右
+          DB_DATABASE: ":memory:" # envよりも2スペース右
         run: php artisan migrate:fresh --seed
-        
-      - name: Execute tests (Unit and Feature tests) 
+
+      - name: Execute tests (Unit and Feature tests)
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: ":memory:"
