@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Tweet;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -15,6 +16,7 @@ class TweetFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Tweet::class;
     public function definition(): array
     {
         return [
