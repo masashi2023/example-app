@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Tweet;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -21,7 +22,7 @@ class TweetFactory extends Factory
     {
         return [
             //
-            'user_id'=>1,
+            'user_id'=>User::factory(),
             'content'=>$this->faker->realText(100),
             'created_at'=>Carbon::now()->yesterday(),
         ];
