@@ -3,9 +3,8 @@
 namespace Tests\Unit\Service;
 
 use App\Services\TweetService;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
-// use PHPUnit\Framework\TestCase;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
+// use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 
