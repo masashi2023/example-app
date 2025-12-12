@@ -7,7 +7,7 @@ use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 // use PHPUnit\Framework\TestCase;
 use Tests\TestCase; 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Mockery
+use Mockery;
 
 class TweetServiceTest extends TestCase
 {
@@ -21,11 +21,14 @@ class TweetServiceTest extends TestCase
         // TweetServiceのインスタンスを生成
         $tweetService = new TweetService();
         
-        queryBuilderMock1 = Mockery::mock()
+        $queryBuilderMock1 = Mockery::mock();
+        
+        $queryBuilderMock1
         ->shouldNotReceive('firsr')
         ->andReturn((object)['id'=>1,'user_id' => 1]);
 
-        queryBuilderMock2 = Mockery::mock()
+        $queryBuilderMock2 = Mockery::mock();
+        $queryBuilderMock2
         ->shouldNotReceive('firsr')
         ->andReturn((object)['id'=>2,'user_id' => 2]);
 
