@@ -4,12 +4,15 @@ namespace Tests\Unit\Service;
 
 use App\Services\TweetService;
 use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TweetServiceTest extends TestCase
 {
     /**
      * A basic unit test example.
      */
+    use RefreshDatabase;
+
     public function test_check_own_tweet(): void
     {
         // TweetServiceのインスタンスを生成
